@@ -1,0 +1,316 @@
+/**
+ * @name My-Theme
+ * @author MikeDevQH
+ * @version 1.0.0
+ * @description Display your picture of choice with adjustable blur and brightness. Dark theme is required.
+ * @authorId 925933412710232105
+**/
+
+/**Importar estilos scc*/
+@import url("https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css");
+
+/* BlackBox tags */
+@import url("https://monstrousdev.github.io/themes/addons/user-tags.css");
+
+:root {
+  /** Variables de imagen de fondo */
+  /* Imagen de fondo principal | LA URL DEBE SER UN ENLACE DIRECTO (terminando en .jpg, .jpeg, .png, .gif) */
+  --background-image: url("https://img.freepik.com/fotos-premium/hipnotizante-cielo-astral-explorando-profundidades-cielo-nocturno-purpura_862994-141462.jpg");
+  /* Intensidad del desenfoque de --background-image | Debe terminar en px | POR DEFECTO: 5px */
+  --background-image-blur: 5px;
+  /* Tamaño de la imagen de fondo | POR DEFECTO: cover | OPCIONES: cover, contain */
+  --background-image-size: cover;
+  /* Posición de la imagen de fondo | POR DEFECTO: center | OPCIONES: top, right, bottom, left, center */
+  --background-image-position: center;
+
+  /** Variables de Popout & Modal */
+  /* Imagen de fondo para popouts y modales | LA URL DEBE SER UN ENLACE DIRECTO (terminando en .jpg, .jpeg, .png, .gif) */
+  --popout-modal-image: var(--background-image);
+  /* Intensidad del desenfoque de --popout-modal-image | Debe terminar en px | POR DEFECTO: 5px */
+  --popout-modal-blur: 5px;
+  /* Tamaño de la imagen de popout/modal | POR DEFECTO: cover | OPCIONES: cover, contain */
+  --popout-modal-size: cover;
+  /* Posición de la imagen de popout/modal | POR DEFECTO: center | OPCIONES: top, right, bottom, left, center */
+  --popout-modal-position: center;
+
+  /** Variables de imagen del botón de inicio */
+  /* Imagen del botón de inicio | LA URL DEBE SER UN ENLACE DIRECTO (terminando en .jpg, .jpeg, .png, .gif) */
+  --home-button-image: url("https://gibbu.github.io/BetterDiscord-Themes/FrostedGlass/assets/discord.svg");
+  /* Tamaño de la imagen del botón de inicio | POR DEFECTO: cover */
+  --home-button-size: cover;
+  /* Posición de la imagen del botón de inicio | POR DEFECTO: center */
+  --home-button-position: center;
+
+  /** Variables de brillo */
+  /* Brillo para la lista de servidores | 0 - 1 (se permiten decimales) | POR DEFECTO: 0.8 */
+  --serverlist-brightness: 0.7;
+  /* Brillo de la lista de canales y MD | 0 - 1 (se permiten decimales) | POR DEFECTO: 0.8 */
+  --left-brightness: 0.7;
+  /* Brillo del chat | 0 - 1 (se permiten decimales) | POR DEFECTO: 0.6 */
+  --middle-brightness: 0.5;
+  /* Brillo de miembros y Ahora Reproduciendo | 0 - 1 (se permiten decimales) | POR DEFECTO: 0 */
+  --right-brightness: 0.2;
+  /* Brillo para popouts y modales | 0 - 1 (se permiten decimales) | POR DEFECTO: 0.75 */
+  --popout-modal-brightness: 0.75;
+
+  /** Variables de degradado */
+  /* POR DEFECTO: 103,58,183 */
+  --gradient-primary: 103, 58, 183;
+  /* POR DEFECTO: 63,81,181 */
+  --gradient-secondary: 63, 81, 181;
+  /* POR DEFECTO: 320deg */
+  --gradient-direction: 320deg;
+
+  /** Variables de tinte */
+  /* Color del tinte | POR DEFECTO: 255,51,159 */
+  --tint-colour: 255, 51, 159;
+  /* Brillo del --tint-colour | 0 - 1 (se permiten decimales) | POR DEFECTO: 0 */
+  --tint-brightness: 0;
+
+  /** Otras variables */
+  /* Espaciado alrededor de la ventana de Discord | POR DEFECTO: 20px */
+  --window-padding: 0px;
+  /* Redondez de Discord | POR DEFECTO: 10px */
+  --window-roundness: 10px;
+  /* POR DEFECTO: rgba(255,255,255,0.05) */
+  --scrollbar-colour: rgba(79, 72, 182);
+  /* POR DEFECTO: #00b0f4 */
+  --link-colour: #00b0f4;
+
+  /**Variables de Color*/
+  --main-color: rgba(63, 81, 181);
+  --secondary-color: rgb(184, 180, 231);
+  --hover-color: rgb(134, 125, 227);
+
+  --font: "Whitney";
+
+  /*! No tocar */
+  --update-notice-1: none;
+}
+
+/*!Estilos propios/
+
+/** Separador de miembros */
+.members_cbd271 .membersGroup_cbd271 {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.15s ease-in-out;
+  opacity: 0.7;
+}
+.members_cbd271 .membersGroup_cbd271:hover {
+  opacity: 1;
+}
+.members_cbd271 .membersGroup_cbd271:before {
+  content: "";
+  height: 2px;
+  flex-grow: 1;
+  background: linear-gradient(to left, currentColor 50%, transparent);
+  margin-right: 5px;
+}
+.members_cbd271 .membersGroup_cbd271:after {
+  content: "";
+  height: 2px;
+  flex-grow: 1;
+  background: linear-gradient(to right, currentColor 50%, transparent);
+  margin-left: 5px;
+}
+
+#MemberCount .membersGroup_cbd271:before,
+#MemberCount .membersGroup_cbd271:after {
+  display: none;
+}
+#MemberCount .membercount-row {
+  width: 240px;
+}
+.hasCounter.membersWrap_cbd271 .members_cbd271 {
+  padding-top: 30px;
+  margin-top: 0;
+}
+.members_cbd271 .membersGroup_cbd271:has(.membercount-row) {
+  opacity: 1;
+}
+
+/**Categorias de canales*/
+.name_a08117 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.7;
+}
+.name_a08117:before {
+  content: "";
+  height: 2px;
+  flex-grow: 1;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to left, var(--secondary-color) 50%, transparent);
+  margin-right: 5px;
+}
+.name_a08117:after {
+  content: "";
+  height: 2px;
+  flex-grow: 1;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(
+    to right,
+    var(--secondary-color) 50%,
+    transparent
+  );
+  margin-left: 5px;
+}
+.mainContent_a08117:hover .name_a08117 {
+  opacity: 1;
+}
+.sidebar_a4d4d9 .containerDefault_a08117 .wrapper_a08117 .name_a08117,
+.sidebar_a4d4d9 .containerDragAfter_a08117 .wrapper_a08117 .name_a08117,
+.sidebar_a4d4d9 .containerDragBefore_a08117 .wrapper_a08117 .name_a08117,
+.sidebar_a4d4d9 .containerUserOver__91b97 .wrapper_a08117 .name_a08117 {
+  color: var(--secondary-color);
+}
+.children_a08117 {
+  margin-left: 3px;
+}
+.collapsed_a08117 .name_a08117:before,
+.collapsed_a08117 .name_a08117:after {
+  flex-grow: 0;
+}
+.muted_a08117 {
+  opacity: 0.5;
+}
+
+/**Aviso de mensaje en un servidor (Puntito)*/
+.item_c4cd66 {
+  width: 12px;
+  margin-left: -6px;
+  border-radius: 20px;
+  background: var(--gradient);
+  box-shadow: 0 0 20px -1px var(--gradient);
+}
+[style*="height: 8px"].item_c4cd66 {
+  height: 10px !important;
+}
+
+/**Titulo: "Mensajes directos"*/
+.privateChannelsHeaderContainer_c47fa9 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-color);
+  font-weight: 700;
+  text-align: center;
+}
+.privateChannelsHeaderContainer_c47fa9:before {
+  content: "";
+  height: 2px;
+  flex-grow: 1;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to left, var(--main-color), 50%, transparent);
+  margin-right: 5px;
+}
+.privateChannelsHeaderContainer_c47fa9:after {
+  content: "";
+  height: 2px;
+  flex-grow: 1;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to right, var(--main-color), 50%, transparent);
+  margin-left: 5px;
+}
+.privateChannelsHeaderContainer_c47fa9 .headerText_c47fa9 {
+  overflow: visible;
+}
+.privateChannelsHeaderContainer_c47fa9
+  .privateChannelRecipientsInviteButtonIcon_c47fa9 {
+  color: var(--main-color);
+  transition: all 0.1s ease-in-out;
+}
+.privateChannelsHeaderContainer_c47fa9
+  .privateChannelRecipientsInviteButtonIcon_c47fa9:hover {
+  color: var(--hover-color);
+}
+
+/**Texto de actividad (Lista de MD)*/
+.interactive_c91bad .activityText_c91bad strong {
+  color: rgb(103, 58, 183);
+  font-weight: 700;
+  transition: all 0.15s ease-in-out;
+}
+.interactive_c91bad .closeButton_c91bad {
+  color: var(--secondary-color);
+}
+.interactive_c91bad:hover {
+  background: rgba(0, 0, 0, 0);
+}
+.interactive_c91bad:hover:before {
+  background: rgba(255, 255, 255, 0.1);
+}
+.interactive_c91bad:hover .linkButtonIcon_c91bad,
+.interactive_c91bad:hover .name_f9647d {
+  color: rgba(103, 58, 183);
+}
+.interactive_c91bad:hover .closeButton_c91bad {
+  opacity: 0.3;
+}
+.interactive_c91bad:hover .closeButton_c91bad:hover {
+  opacity: 0.7;
+}
+.interactive_c91bad.interactiveSelected_c91bad {
+  background: rgba(0, 0, 0, 0);
+}
+.interactive_c91bad.interactiveSelected_c91bad:before {
+  background: rgba(255, 255, 255, 0.1);
+}
+.interactive_c91bad.interactiveSelected_c91bad:after {
+  right: 0;
+  background: rgb(103, 58, 183);
+  animation: cv-channel-select 0.3s ease-in-out;
+}
+.interactive_c91bad.interactiveSelected_c91bad .linkButtonIcon_c91bad,
+.interactive_c91bad.interactiveSelected_c91bad .name_f9647d {
+  color: #fff;
+}
+.interactive_c91bad.interactiveSelected_c91bad .activityEmoji_c91bad,
+.interactive_c91bad.interactiveSelected_c91bad .icon_ad923e {
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.7));
+}
+.interactive_c91bad.interactiveSelected_c91bad .activityText_c91bad strong {
+  color: #fff;
+}
+.interactive_c91bad.interactiveSelected_c91bad .closeButton_c91bad {
+  opacity: 0.7;
+}
+.interactive_c91bad.interactiveSelected_c91bad .closeButton_c91bad:hover {
+  opacity: 1;
+}
+.interactive_c91bad .highlighted_f9647d .name_f9647d {
+  color: #fff;
+}
+
+/**Texto de actividad (Lista de Miembros)*/
+.members_cbd271 .member_cbd271 .activityText_a31c43 {
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.15s ease-in-out;
+}
+.members_cbd271 .member_cbd271 .activityText_a31c43 strong {
+  color: rgba(103, 58, 183);
+  font-weight: 700;
+  transition: all 0.15s ease-in-out;
+}
+.members_cbd271 .member_cbd271.selected_e9f61e .name_e9f61e {
+  color: #fff;
+}
+.members_cbd271 .member_cbd271.selected_e9f61e .activityText_a31c43 {
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+  color: rgba(103, 58, 183);
+}
+.members_cbd271 .member_cbd271.selected_e9f61e .activityText_a31c43 strong {
+  color: #fff;
+}
